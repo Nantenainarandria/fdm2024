@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HAPPY MOTHER'S DAY</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Indie Flower', cursive;
+            margin: 0;
+            padding: 0;
+            background: #fff;
+            scroll-behavior: smooth;
+        }
+
+        header {
+            text-align: center;
+            padding: 30px 0;
+            margin-bottom: 20px;
+            background-color: rgba(255, 192, 203, 0.5);
+            color: #333;
+        }
+
+        header h1 {
+            font-size: 2em;
+            position: relative;
+        }
+
+        header span {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            overflow: hidden;
+            color: #000;
+            animation: reveal 2s ease forwards;
+        }
+
+        @keyframes reveal {
+            0% {
+                width: 0;
+            }
+            100% {
+                width: 100%;
+            }
+        }
+
+        main {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 0 20px;
+        }
+
+        h2 {
+            color: #000;
+            background-color: #fff;
+            padding: 15px;
+            font-family: 'Indie Flower', cursive;
+            font-weight: bold;
+            font-size: 1.5em;
+        }
+
+        .slider {
+            position: relative;
+            max-width: 100%;
+            margin: auto;
+            overflow: hidden;
+        }
+
+        .slides {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .slides img {
+            width: 100%;
+            border: 10px solid #fff;
+            border-radius: 20px;
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        footer {
+            background-color: rgba(255, 192, 203, 0.5);
+            padding: 20px 0;
+            text-align: center;
+            color: #333;
+            margin-top: 10px;
+            font-family: Arial, sans-serif;
+        }
+
+        footer p {
+            font-size: 12px;
+        }
+
+        footer a {
+            color: #333;
+            margin: 0 10px;
+        }
+
+        .social-icon {
+            font-size: 15px;
+            margin-right: 10px;
+        }
+
+        .social-info {
+            font-size: 10px;
+            color: #333;
+        }
+
+        .btn-facebook {
+            background-color: #ffa8f8;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 50px;
+            text-decoration: none;
+            transition: background-color 0.3s, transform 0.3s;
+            display: inline-block;
+            margin-top: 5px;
+        }
+
+        .btn-facebook:hover {
+            background-color: #fe36ee;
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+    <header onclick="window.location.href='http://fdm.com';">
+        <h1>Miarahaba anao izahay ry Neny</h1>
+        <span>Happy Mother's Day</span>
+    </header>
+    <main>
+        <section id="scrolling-section">
+            <h2>Ho an'ilay Neny Tiako</h2>
+            <div class="slider" id="slider">
+                <div class="slides">
+                    <img src="image1.jpg" alt="Première image" loading="lazy">
+                    <img src="image2.jpg" alt="Deuxième image" loading="lazy">
+                    <img src="image3.jpg" alt="Troisième image" loading="lazy">
+                </div>
+            </div>
+            <div class="container mt-3">
+                <a href="https://www.facebook.com/chocolaterierobert" target="_blank" class="btn btn-facebook btn-lg">Suivez-nous sur Facebook</a>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 mb-3">
+                    <a href="mailto:chorobert@moov.mg" class="social-icon"><i class="fas fa-envelope"></i></a>
+                    <span class="social-info">chorobert@moov.mg</span>
+                    <a href="tel:+261 20 22 205 65" class="social-icon"><i class="fas fa-phone"></i></a>
+                    <span class="social-info">+261 20 22 205 65</span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <p>&copy; Chocolaterie Robert</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js" defer></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" defer></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const slides = document.querySelector('.slides');
+            let index = 0;
+
+            function showSlide(index) {
+                const slideWidth = slides.children[0].clientWidth;
+                slides.style.transform = `translateX(${-index * slideWidth}px)`;
+            }
+
+            function nextSlide() {
+                index = (index < slides.children.length - 1) ? index + 1 : 0;
+                showSlide(index);
+            }
+
+            setInterval(nextSlide, 10000); // Change slide every 10 seconds
+        });
+    </script>
+</body>
+</html>
