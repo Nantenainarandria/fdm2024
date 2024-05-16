@@ -8,79 +8,103 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
     <style>
-        body {
-            font-family: 'Indie Flower', cursive;
-            margin: 0;
-            padding: 0;
-            background: #fff;
-            scroll-behavior: smooth;
+        /* Ajout de styles pour diminuer la taille des images */
+        .carousel-item img {
+            max-height: 300px; /* Hauteur maximale des images */
+            width: auto; /* Largeur automatique pour conserver les proportions */
         }
+        /* Styles précédents */
+body {
+    font-family: 'Indie Flower', cursive;
+    margin: 0;
+    padding: 0;
+    background: #fff;
+    scroll-behavior: smooth;
+}
+header {
+    text-align: center;
+    padding: 5px 0; /* Réduire la marge haut et bas */
+    margin-bottom: 5px; /* Réduire la marge bas */
+    background-color: rgba(255, 192, 203, 0.5);
+    color: #333;
+    cursor: pointer;
+}
+header h1 {
+    font-family: 'Indie Flower', cursive;
+    font-size: 2em;
+    position: relative;
+}
+header span {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    overflow: hidden;
+    color: #000;
+    animation: reveal 2s ease forwards;
+}
 
-        header {
-            text-align: center;
-            padding: 30px 0;
-            margin-bottom: 20px;
-            background-color: rgba(255, 192, 203, 0.5);
-            color: #333;
-        }
+@keyframes reveal {
+    0% {
+        width: 0;
+    }
+    100% {
+        width: 100%;
+    }
+}
+main {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 0 20px;
+}
+h2 {
+    font-family: 'Indie Flower', cursive;
+    color: #000;
+    padding: 0;
+    font-weight: bold;
+    font-size: 1.5em;
+}
+.social-icon {
+    font-size: 15px;
+    margin-right: 10px;
+}
+.social-info {
+    font-size: 10px;
+    color: #333;
+}
+.btn-facebook {
+    background-color: #ffa8f8;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: background-color 0.3s, transform 0.3s;
+    display: inline-block;
+    margin-top: 5px;
+}
 
-        header h1 {
-            font-size: 2em;
-            position: relative;
-        }
-
-        header span {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 0;
-            overflow: hidden;
-            color: #000;
-            animation: reveal 2s ease forwards;
-        }
-
-        @keyframes reveal {
-            0% {
-                width: 0;
-            }
-            100% {
-                width: 100%;
-            }
-        }
-
-        main {
-            max-width: 800px;
-            margin: 20px auto;
-            padding: 0 20px;
-        }
-
-        h2 {
-            color: #000;
-            background-color: #fff;
-            padding: 15px;
-            font-family: 'Indie Flower', cursive;
-            font-weight: bold;
-            font-size: 1.5em;
-        }
-
-        .slider {
-            position: relative;
-            max-width: 100%;
-            margin: auto;
-            overflow: hidden;
-        }
-
-        .slides {
-            display: flex;
-            transition: transform 0.5s ease-in-out;
-        }
-
-        .slides img {
-            width: 100%;
-            border: 10px solid #fff;
-            border-radius: 20px;
-            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
-        }
+.btn-facebook:hover {
+    background-color: #ffa6ff;
+    transform: scale(1.05);
+}
+/* Nouveaux styles pour le carrousel */
+.carousel-inner img {
+    margin: auto; /* Centrer les images horizontalement */
+}
+/* Nouveaux styles pour les appareils mobiles */
+@media (max-width: 576px) {
+    header {
+        padding: 20px 0; /* Réduire l'espace de la zone d'en-tête sur les petits écrans */
+    }
+    .btn {
+        margin: 10px auto; /* Centrer le bouton sur les petits écrans */
+    }
+    .scroll-img {
+        max-width: 50%; /* Réduire la taille de l'image de défilement sur les petits écrans */
+        display: block; /* Assurer que l'image est centrée */
+        margin: auto; /* Centrer l'image horizontalement */
+    }
 
         footer {
             background-color: rgba(255, 192, 203, 0.5);
@@ -129,24 +153,33 @@
     </style>
 </head>
 <body>
-    <header onclick="window.location.href='http://fdm.com';">
-        <h1>Miarahaba anao izahay ry Neny</h1>
-        <span>Happy Mother's Day</span>
+    <header class="bg-pink text-center py-3">
+        <h1 class="mb-2" id="title">Miarahaba anao izahay ry Neny</h1>
     </header>
-    <main>
-        <section id="scrolling-section">
-            <h2>Ho an'ilay Neny Tiako</h2>
-            <div class="slider" id="slider">
-                <div class="slides">
-                    <img src="image1.jpg" alt="Première image" loading="lazy">
-                    <img src="image2.jpg" alt="Deuxième image" loading="lazy">
-                    <img src="image3.jpg" alt="Troisième image" loading="lazy">
+    <h2 class="bg-pink text-left py-3" id="subtitle">Ho an'ilay neny tiako indrindra!</h2>
+    <main class="container text-center my-3">
+        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" data-interval="false">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="image1.jpg" class="d-block w-100" alt="Image 1">
+                </div>
+                <div class="carousel-item">
+                    <img src="image2.jpg" class="d-block w-100" alt="Image 2">
+                </div>
+                <div class="carousel-item">
+                    <img src="image3.jpg" class="d-block w-100" alt="Image 3">
                 </div>
             </div>
-            <div class="container mt-3">
-                <a href="https://www.facebook.com/chocolaterierobert" target="_blank" class="btn btn-facebook btn-lg">Suivez-nous sur Facebook</a>
-            </div>
-        </section>
+            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+        <a href="https://www.chocolaterierobert.com" target="_blank" class="btn btn-primary mt-3">Suivez-nous sur Facebook</a>
     </main>
     <footer>
         <div class="container">
@@ -154,7 +187,7 @@
                 <div class="col-md-12 mb-3">
                     <a href="mailto:chorobert@moov.mg" class="social-icon"><i class="fas fa-envelope"></i></a>
                     <span class="social-info">chorobert@moov.mg</span>
-                    <a href="tel:+261 20 22 205 65" class="social-icon"><i class="fas fa-phone"></i></a>
+                    <a href="tel:+261202220565" class="social-icon"><i class="fas fa-phone"></i></a>
                     <span class="social-info">+261 20 22 205 65</span>
                 </div>
             </div>
@@ -165,26 +198,47 @@
             </div>
         </div>
     </footer>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" defer></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js" defer></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" defer></script>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            const slides = document.querySelector('.slides');
-            let index = 0;
+            const titleElement = document.getElementById('title');
+            const subtitleElement = document.getElementById('subtitle');
+            const titleText = titleElement.innerText;
+            const subtitleText = subtitleElement.innerText;
+            titleElement.innerText = '';
 
-            function showSlide(index) {
-                const slideWidth = slides.children[0].clientWidth;
-                slides.style.transform = `translateX(${-index * slideWidth}px)`;
-            }
+            // Afficher le titre avec un léger délai
+            setTimeout(() => {
+                displayText(titleText, titleElement);
+            }, 500); // 500 millisecondes de délai, ajustez selon vos préférences
 
-            function nextSlide() {
-                index = (index < slides.children.length - 1) ? index + 1 : 0;
-                showSlide(index);
-            }
+            // Afficher le sous-titre après l'affichage du titre
+            setTimeout(() => {
+                subtitleElement.innerText = '';
+                displayText(subtitleText, subtitleElement);
+            }, 5000); // 5000 millisecondes de délai après l'affichage du titre
 
-            setInterval(nextSlide, 10000); // Change slide every 10 seconds
+            // Démarrer le carrousel après un certain délai pour chaque diapositive
+            setInterval(() => {
+                $('#carouselExampleIndicators').carousel('next');
+            }, 20000); // Démarrer le carrousel toutes les 20 secondes
         });
-    </script>
+        function displayText(text, element, index = 0) {
+            if (index < text.length) {
+                if (text[index] === ' ') {
+                    element.innerText += text[index];
+                    element.innerText += '\xa0'; // Utiliser un espace insécable
+                } else {
+                    element.innerText += text[index];
+                }
+                setTimeout(() => {
+                    displayText(text, element, index + 1);
+                }, 100); // Délai entre l'affichage des caractères, ajustez selon vos préférences
+            }
+        }
+    </script>    
 </body>
 </html>
